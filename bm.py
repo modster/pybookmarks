@@ -1,6 +1,7 @@
 '''
-This program cleans up the bookmarks.html file exported from chrome which uses netscape bookmarks format
-Author: Mike Greeff 
+This program cleans up the bookmarks.html file exported from chrome which uses netscape bookmarks format 
+Author: Mike Greeff
+Dependencies: BeautifulSoup
 '''
 
 from bs4 import BeautifulSoup

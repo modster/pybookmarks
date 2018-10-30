@@ -1,0 +1,51 @@
+soup = BeautifulSoup('<b class="boldest">Extremely bold</b>')
+tag = soup.b
+
+tag.name = "blockquote"
+tag['class'] = 'verybold'
+tag['id'] = 1
+tag
+# <blockquote class="verybold" id="1">Extremely bold</blockquote>
+
+del tag['class']
+del tag['id']
+tag
+# <blockquote>Extremely bold</blockquote>
+
+
+
+
+markup = '<a href="http://example.com/">I linked to <i>example.com</i></a>'
+soup = BeautifulSoup(markup)
+a_tag = soup.a
+
+i_tag = soup.i.extract()
+
+a_tag
+# <a href="http://example.com/">I linked to</a>
+
+i_tag
+# <i>example.com</i>
+
+print(i_tag.parent)
+None
+
+
+
+markup = '<a href="http://example.com/">I linked to <i>example.com</i></a>'
+soup = BeautifulSoup(markup)
+a_tag = soup.a
+
+a_tag.i.unwrap()
+a_tag
+# <a href="http://example.com/">I linked to example.com</a>
+
+
+
+markup = '<a href="http://example.com/">\nI linked to <i>example.com</i>\n</a>'
+soup = BeautifulSoup(markup)
+
+soup.get_text()
+u'\nI linked to example.com\n'
+soup.i.get_text()
+u'example.com'
